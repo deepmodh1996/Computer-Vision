@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage[top=0.5in,bottom=0.5in,  left=0.75in, textheight=8in, right=0.75in]{geometry}
+\renewcommand{\section}\large{}
+\usepackage{amsmath}
+\title{Q5}
+\date{\today}
+\author{
+	Tejesh Raut\\
+	\texttt{140050008}
+	\and
+	Deep Modh\\
+	\texttt{140050002}
+	\and
+	Chaitanya Rajesh\\
+	\texttt{140050073}
+	}
+\begin{document}
+	\maketitle
+	\
+	\section{\huge{a)}} Consider two parallel lines with slope M = 
+	\begin{math}
+	\begin{pmatrix}
+	m_x \\
+	m_y \\
+	m_z
+	\end{pmatrix}
+	\end{math}
+	and passing through the points: \\
+	\begin{math}X_1=\begin{pmatrix}x_{1x}\\x_{1y}\\x_{1z}\end{pmatrix}\end{math} and \begin{math}X_2 = \begin{pmatrix}x_{2x}\\x_{2y}\\x_{2z}\end{pmatrix}\end{math}
+	\\
+	So in homogeneous coordinates arbitrary points on these lines will be represented in parametric form as:
+	\\
+	\begin{math}L_1 = \begin{pmatrix}x_{1x}\\x_{1y}\\x_{1z}\\1\end{pmatrix} + t_1\begin{pmatrix}m_x\\m_y\\m_z\\0\end{pmatrix}\end{math}
+	and
+	\begin{math}L_2 = \begin{pmatrix}x_{2x}\\x_{2y}\\x_{2z}\\1\end{pmatrix} + t_2\begin{pmatrix}m_x\\m_y\\m_z\\0\end{pmatrix}\end{math}
+	\\
+	Ideal perspective projection on image plane is given by the transformation matrix \begin{math}P = \begin{pmatrix}c&0&0&0\\0&c&0&0\\0&0&1&0\end{pmatrix}\end{math}
+	\\
+	On applying the tranformation matrix, equations of the lines become:
+	\\
+	\begin{math}L_1^1 = \begin{pmatrix}c&0&0&0\\0&c&0&0\\0&0&1&0\end{pmatrix}\begin{pmatrix}x_{1x}+t_1m_x\\x_{1y}+t_1m_y\\x_{1z}+t_1m_z\\1\end{pmatrix} = \begin{pmatrix}cx_{1x}+ct_1m_x\\cx_{1y}+ct_1m_y\\x_{1z}+t_1m_z\end{pmatrix}\end{math}
+	\\
+	\begin{math}L_2^1 = \begin{pmatrix}c&0&0&0\\0&c&0&0\\0&0&1&0\end{pmatrix}\begin{pmatrix}x_{2x}+t_2m_x\\x_{2y}+t_2m_y\\x_{2z}+t_2m_z\\1\end{pmatrix} = \begin{pmatrix}cx_{2x}+ct_2m_x\\cx_{2y}+ct_2m_y\\x_{2z}+t_2m_z\end{pmatrix}\end{math}
+	\\
+	For intersection:
+	\\
+	\begin{equation}\frac{cx_{1x}+ct_1m_x}{x_{1z}+t_1m_z} = \frac{cx_{2x}+ct_2m_x}{x_{2z}+t_2m_z}\end{equation}
+	and
+	\begin{equation}\frac{cx_{1y}+ct_1m_y}{x_{1z}+t_1m_z} = \frac{cx_{2y}+ct_2m_y}{x_{2z}+t_2m_z}\end{equation}
+	\\
+	Solution exists when \begin{math}t_1\to\infty\end{math} and \begin{math}t_2\to\infty\end{math}
+	\\
+	So they will intersect each other on the image plane at the point:
+	\\
+	\begin{math}X_{12} = \begin{pmatrix}\frac{cm_x}{m_z}\\\frac{cm_y}{m_z}\\1\end{pmatrix}\end{math}
+	\\
+	Hence Proved that the projections (in image plane) of any two parallel lines have an intersecting point, vanishing point.
+	\\
+	\\
+	\\
+	\section{\huge{b)}}
+	We need 3 different set of parallel lines on a 3D plane. Let the slopes of these set of parallel lines be:
+	\\
+	\begin{math}M_1 = \begin{pmatrix}m_{1x} \\m_{1y} \\m_{1z}\end{pmatrix}\end{math}, 
+	\begin{math}M_2 = \begin{pmatrix}m_{2x} \\m_{2y} \\m_{2z}\end{pmatrix}\end{math} and 
+	\begin{math}M_3 = \begin{pmatrix}m_{3x} \\m_{3y} \\m_{3z}\end{pmatrix}\end{math}
+	\\
+	Since they are on same plane, dot product of direction of lines with normal to the plant is 0.
+	\\
+	Let the normal to the plane be \begin{math}N = \begin{pmatrix}n_x\\n_y\\n_z\end{pmatrix}\end{math}
+	\\
+	We have \begin{math}M_1^TN=0\end{math}, \begin{math}M_2^TN=0\end{math} and \begin{math}M_3^TN=0\end{math}
+	\\
+	\begin{math}\begin{pmatrix}m_{1x}&m_{1y}&m_{1z}\\m_{2x}&m_{2y}&m_{2z}\\m_{3x}&m_{3y}&m_{3z}\end{pmatrix}\begin{pmatrix}n_x\\n_y\\n_z\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}\end{math}
+	\\
+	Non zero solution exist for N, hence matrix is not invertible and its determinant is zero.
+	\\
+	Therefore:
+	\\
+	\begin{math}\begin{vmatrix}m_{1x}&m_{1y}&m_{1z}\\m_{2x}&m_{2y}&m_{2z}\\m_{3x}&m_{3y}&m_{3z}\end{vmatrix} = 0 \end{math}
+	\\
+	\begin{math}\frac{1}{c^2}\begin{vmatrix}cm_{1x}&cm_{1y}&m_{1z}\\cm_{2x}&cm_{2y}&m_{2z}\\cm_{3x}&cm_{3y}&m_{3z}\end{vmatrix} = 0 \end{math}
+	\\
+	\begin{math}\frac{m_{1z}m_{2z}m_{3z}}{c^2}\begin{vmatrix}\frac{cm_{1x}}{m_{1z}}&\frac{cm_{1y}}{m_{1z}}&1\\\frac{cm_{2x}}{m_{2z}}&\frac{cm_{2y}}{m_{2z}}&1\\\frac{cm_{3x}}{m_{3z}}&\frac{cm_{3y}}{m_{3z}}&1\end{vmatrix} = 0 \end{math}
+	\\
+	\begin{equation}
+	\begin{vmatrix}\frac{cm_{1x}}{m_{1z}}&\frac{cm_{1y}}{m_{1z}}&1\\\frac{cm_{2x}}{m_{2z}}&\frac{cm_{2y}}{m_{2z}}&1\\\frac{cm_{3x}}{m_{3z}}&\frac{cm_{3y}}{m_{3z}}&1\end{vmatrix} = 0 
+	\end{equation}
+	\\
+	From solution of part a), we can conclude that the vanishing points for these 3 set of lines on projection will be:
+	\\
+	\begin{math}V_1=\begin{pmatrix}\frac{cm_{1x}}{m_{1z}}\\\frac{cm_{1y}}{m_{1z}}\\1\end{pmatrix}\end{math}, 
+	\begin{math}V_2=\begin{pmatrix}\frac{cm_{2x}}{m_{2z}}\\\frac{cm_{2y}}{m_{2z}}\\1\end{pmatrix}\end{math} and 
+	\begin{math}V_3=\begin{pmatrix}\frac{cm_{3x}}{m_{3z}}\\\frac{cm_{3y}}{m_{3z}}\\1\end{pmatrix}\end{math}
+	\\
+	Area of triangle formed by these points is given by:
+	\\
+	\begin{math}\frac{1}{2}\begin{vmatrix}\frac{cm_{1x}}{m_{1z}}&\frac{cm_{1y}}{m_{1z}}&1\\\frac{cm_{2x}}{m_{2z}}&\frac{cm_{2y}}{m_{2z}}&1\\\frac{cm_{3x}}{m_{3z}}&\frac{cm_{3y}}{m_{3z}}&1\end{vmatrix} \end{math}
+	\\
+	Using equation (3), we get area of the triangle formed by these points is 0
+	\\
+	Hence proved that the vanishing points corresponding to three (different) sets of parallel lines on a 3D plane are collinear in the image plane.
+\end{document}
