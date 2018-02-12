@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[top=0.5in,bottom=0.5in,  left=0.75in, textheight=8in, right=0.75in]{geometry}
+\usepackage{amsmath}
+\title{Q1}
+\date{\today}
+\author{
+	Tejesh Raut\\
+	\texttt{140050008}
+	\and
+	Deep Modh\\
+	\texttt{140050002}
+	\and
+	Chaitanya Rajesh\\
+	\texttt{140050073}
+}
+\begin{document}
+	\maketitle
+	Extend the outer boundaries to get the corners of outer boundary.
+	\newline
+	This new image formed in stored as wembley\_corners.jpg in output folder. Note that all the coordinates referred hereafter are with respect to wembley\_corners.jpg file and not the original wembley.jpeg.
+	\newline
+	\newline
+	Find the homography matrix using the points to map the coordinates of outer boundary to an imaginary plane with coordinates to be the distance in yards:
+	\newline
+	(30, 371) - (0, 18)
+	\newline
+	(337, 271) - (0, 0)
+	\newline
+	(878, 323) - (44, 0)
+	\newline
+	(831, 553) - (44, 18)
+	\newline
+	Homography matrix hence obtained is:
+	\newline
+	\begin{math}
+	\begin{pmatrix}
+	0.000769943767210617&0.00236372736533829&-0.900041165556824 \\
+	-0.000175535686156667&0.00182624627327294&-0.435757213821539 \\
+	0.00000182250199699356&0.0000505176750096942&-0.00565706121197567
+	\end{pmatrix}
+	\end{math}
+	\newline
+	Use this homography matrix to find the mapping of corners of inner boundary.
+	\newline
+	a1 = (750, 505) bottom-right corner 
+	\newline
+	a2 = (821, 327) top-right corner
+	\newline
+	a3 = (357, 420) centre of bottom boundary
+	\newline
+	Length will be twice of distance between a1 and a3 and breadth will be distance between a1 and a2.
+	\newline
+	\newline
+	Results obtained:
+	\newline
+	\textbf{Length: 36.75 yards}
+	\newline
+	\textbf{Breadth: 15.32 yards}
+\end{document}
